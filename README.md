@@ -1,4 +1,4 @@
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GUIDE_MINITALK >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<< GUIDE_MINITALK >>>>>>>>>>>>>>>>>
 
 implementation of a signaling system between a server and client using UNIX signals
 {inter-process communication (IPC)}
