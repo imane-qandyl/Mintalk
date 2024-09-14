@@ -1,4 +1,3 @@
-
 NAMEC = client
 NAMES = server
 BONUS_NAMEC = client_bonus

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imqandyl <imqandyl@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/13 23:20:39 by imqandyl          #+#    #+#             */
+/*   Updated: 2024/09/14 13:57:12 by imqandyl         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/minitalk.h"
 
 void	ft_btoa(int sig)
@@ -6,18 +18,11 @@ void	ft_btoa(int sig)
 	static int	i;
 
 	if (sig == SIGUSR1)
-	{
-        i |= (0x01 << bit);
-        ft_printf("Received SIGUSR1\n");
-    }
-    else if (sig == SIGUSR2)
-    {
-        ft_printf("Received SIGUSR2\n");
-    }
+		i |= (0x01 << bit);
 	bit++;
 	if (bit == 8)
 	{
-		ft_printf("Character received: %c", i);
+		ft_printf("%c", i);
 		bit = 0;
 		i = 0;
 	}
