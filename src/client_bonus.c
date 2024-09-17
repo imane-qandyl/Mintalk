@@ -6,7 +6,7 @@
 /*   By: imqandyl <imqandyl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 23:20:26 by imqandyl          #+#    #+#             */
-/*   Updated: 2024/09/14 15:26:17 by imqandyl         ###   ########.fr       */
+/*   Updated: 2024/09/17 04:08:10 by imqandyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_atob(int pid, char c)
 			ft_printf("Error: Signal transmission failed\n");
 			return ;
 		}
-		usleep(100);
+		usleep(500);
 		bit++;
 	}
 }
@@ -79,24 +79,22 @@ int	main(int argc, char **argv)
 	int	pid;
 	int	i;
 
-	if (argc != 3)
-	{
-		ft_printf("Error");
-		return (1);
-	}
-	pid = ft_atoi(argv[1]);
-	if (pid <= 0 || !argv[2][0])
-	{
-		ft_printf("Invalid PID or empty message string");
-		return (1);
-	}
-	signal(SIGUSR2, confirm_msg);
 	i = 0;
-	while (argv[2][i] != '\0')
+	if (argc == 3)
 	{
-		ft_atob(pid, argv[2][i]);
-		i++;
+		pid = ft_atoi(argv[1]);
+		if (pid <= 0 || !argv[2][0])
+			return (ft_printf("Error: Invalid PID or empty message string"), 1);
+		signal(SIGUSR2, confirm_msg);
+		i = 0;
+		while (argv[2][i] != '\0')
+		{
+			ft_atob(pid, argv[2][i]);
+			i++;
+		}
 	}
+	else
+		return (ft_printf("Error\n"), 1);
 	ft_atob(pid, '\0');
 	return (0);
 }
